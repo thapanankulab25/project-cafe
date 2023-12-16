@@ -74,6 +74,7 @@ const authCRUD = require('./middleware/authCRUD')
 
 //get
 // app.get('/', indexController)
+app.get('/index',indexController)
 app.get('/', loginController)
 app.get('/home',authMiddleware,homeController)
 app.get('/login', redirectAuth,loginController)
