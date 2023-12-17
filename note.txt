@@ -4,3 +4,5 @@ git status //เช็คสถานะที่ทำไป
 git push //ผลักเพื่อเข้าสู่ Server
 test542
 test002
+56
+57
