@@ -3,3 +3,5 @@ git commit -m "--ชื่อที่ตั้ง--" //สร้างชื่
 git status //เช็คสถานะที่ทำไป
 git push //ผลักเพื่อเข้าสู่ Server
 test//
+test// 02
+//
