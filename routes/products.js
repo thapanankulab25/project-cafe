@@ -97,7 +97,6 @@ router.post('/update/:id', (req, res, next) => {
 });
 
 // with user
-
 router.get('/deleteU/:id', (req, res, next) => {
   Product.findByIdAndDelete(req.params.id)
     .then(deletedProduct => {
@@ -114,7 +113,8 @@ router.get('/deleteU/:id', (req, res, next) => {
 
 
 
-// Multer Images
+
+// Multer Images Admin
 const multer = require('multer');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -142,7 +142,29 @@ router.post('/insert', upload.single('image'), async (req, res, next) => {
     console.error('Error:', err);
     next(err);
   }
+
 });
+
+router.post('/insertU', upload.single('image'), async (req, res, next) => {
+  try {
+    console.log('Received form data:', req.body);
+    console.log('Received file:', req.file);
+
+    const product = await Product.create({
+      productname: req.body.productname,
+      type: req.body.type,
+      price: req.body.price,
+      image: req.file.filename,
+    });
+
+    res.redirect('/productU');
+  } catch (err) {
+    console.error('Error:', err);
+    next(err);
+  }
+});
+
+
 
 
 
