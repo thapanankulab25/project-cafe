@@ -45,7 +45,7 @@ const employeeController = require('./controllers/employeeController')
 const index_productController = require('./controllers/index_productController')
 const orderController = require('./controllers/orderController')
 const rawController = require('./controllers/rawController')
-const productssController = require('./controllers/productssController');
+const productUController = require('./controllers/productUController');
 const paymentcashController = require('./controllers/paymentcashController');
 const homeUController = require('./controllers/homeUController');
 const paymentoptionsController = require('./controllers/paymentoptionsController');
@@ -91,7 +91,7 @@ app.get('/raw',authMiddleware,rawController)
 app.get('/paymentcash',authMiddleware,paymentcashController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/paymentoptions',authMiddleware,paymentoptionsController)
-
+app.get('/productU',authMiddleware,productUController)
 
 
 

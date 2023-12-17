@@ -96,6 +96,22 @@ router.post('/update/:id', (req, res, next) => {
     });
 });
 
+// with user
+
+router.get('/deleteU/:id', (req, res, next) => {
+  Product.findByIdAndDelete(req.params.id)
+    .then(deletedProduct => {
+      res.redirect('/productU')
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+
+
+
+
 
 
 // Multer Images
