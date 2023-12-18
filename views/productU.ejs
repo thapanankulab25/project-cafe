@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Purple Admin</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500&display=swap" rel="stylesheet">
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -17,9 +21,12 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <div class="container-scroller">
+  <body style="font-family: 'Prompt', sans-serif; font-size: 14px;">
+    <div class="container-scroller" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
       <!-- partial:../../partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -40,7 +47,7 @@
               </div>
             </form>
           </div>
-          <ul class="navbar-nav navbar-nav-right">
+          <ul class="navbar-nav navbar-nav-right" >
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
@@ -266,19 +273,18 @@
           </ul>
         </nav>
         <!-- partial -->
-        <div class="main-panel">
-
+        <div class="main-panel" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
-                  <div class="card-body">
-            <a href="#" class="btn btn-block btn-lg btn-gradient-primary mt-4" data-bs-toggle="modal" data-bs-target="#addEmployeeModal">+ เพิ่มเครื่องดื่ม</a>
+                  <div class="card-body" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
+            <a href="#" class="btn btn-block btn-lg btn-gradient-primary mt-4" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" style="font-family: 'Prompt', sans-serif; font-size: 14px;">+ เพิ่มเครื่องดื่ม</a>
           <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                       <form action="products/insertU" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
                           <label for="productName" class="form-label">ชื่อสินค้า</label>
@@ -286,7 +292,7 @@
                         </div>
                         <div class="mb-3">
                           <label for="productType" class="form-label">ประเภท</label>
-                          <select class="form-control" id="type" name="type" required>
+                          <select class="form-control" id="type" name="type" required style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                               <option value="เย็น">เย็น</option>
                               <option value="ร้อน">ร้อน</option>
                               <option value="ปั่น">ปั่น</option>
@@ -294,13 +300,13 @@
                       </div>
                         <div class="mb-3">
                           <label for="productPrice" class="form-label">ราคา</label>
-                          <input type="number" class="form-control" id="price" name="price" pattern="[0-9]+"required>
+                          <input type="number" class="form-control" id="price" name="price" pattern="[0-9]+" required>
                       </div>
                       <div class="mb-3">
-                        <label for="image" class="form-label">รูปภาพ</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <label for="image" class="form-label" >รูปภาพ</label>
+                        <input type="file" class="form-control" id="image" name="image" style="font-family: 'Prompt', sans-serif; font-size: 14px;" required>
                       </div>                     
-                        <button type="submit" class="btn btn-dark">บันทึก</button>
+                        <button type="submit" class="btn btn-dark" style="font-family: 'Prompt', sans-serif; font-size: 14px;">บันทึก</button>
                       </form>
                     </div>
                 </div>
@@ -317,18 +323,18 @@
         <script></script>
 
                     <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th> ลำดับที่ </th>
-                          <td>รูปภาพ </td>
-                          <th> ชื่อสินค้า </th>
-                          <th> ประเภท </th>
-                          <th> ราคา </th>
-                          <th> เวลาและวันที่สร้าง </th>
-                          <th> Action </th>
+                      <thead >
+                        <tr >
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"> ลำดับที่ </th>
+                          <td style="font-family: 'Prompt', sans-serif; font-size: 14px;">รูปภาพ </td>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"> ชื่อสินค้า </th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"> ประเภท </th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"> ราคา </th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"> เวลาและวันที่สร้าง </th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"> Action </th>
                         </tr>
                       </thead>
-                      <tbody id="productTableBody">
+                      <tbody id="productTableBody" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                       
                       </tbody>
                     </table>
