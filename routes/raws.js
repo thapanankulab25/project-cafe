@@ -97,6 +97,28 @@ router.post('/update', (req, res, next) => {
     });
 });
 
+
+//api CRUD with User
+router.get('/deleteU/:id', (req, res, next) => {
+  Raw.findByIdAndDelete(req.params.id)
+    .then(deletedProduct => {
+      res.redirect('/rawU')
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.post('/insertU', (req, res, next) => { //Create products
+  Raw.create(req.body)
+    .then(raw => {
+      res.redirect('/raw')
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 // router.post('/update', async (req, res, next) => {
 //   try {
 //     const update_id = req.body.update_id;

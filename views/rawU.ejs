@@ -224,7 +224,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/rawU">
-                <span class="menu-title">วัตถุดิบ</span>
+                <span class="menu-title" style="font-family: 'Prompt', sans-serif; font-size: 14px;">วัตถุดิบ</span>
                 <i class="mdi mdi-food-variant menu-icon"></i>
               </a>
             </li>
@@ -265,8 +265,8 @@
             <div class="page-header">
               <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Dashboard
+                  <i class="mdi mdi-food-variant"></i>
+                </span> จัดการข้อมูลวัตถุดิบ
               </h3>
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
@@ -276,127 +276,96 @@
                 </ul>
               </nav>
             </div>
+
             <div class="row">
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-danger card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Sales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">$ 15,0000</h2>
-                    <h6 class="card-text">Increased by 60%</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-info card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Weekly Orders <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">45,6334</h2>
-                    <h6 class="card-text">Decreased by 10%</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-success card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Visitors Online <i class="mdi mdi-diamond mdi-24px float-right"></i>
-                    </h4>
-                    <h2 class="mb-5">95,5741</h2>
-                    <h6 class="card-text">Increased by 5%</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="clearfix">
-                      <h4 class="card-title float-left">Visit And Sales Statistics</h4>
-                      <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                    </div>
-                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Traffic Sources</h4>
-                    <canvas id="traffic-chart"></canvas>
-                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div class="row">
               <div class="col-12 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Recent Tickets</h4>
-                    <div class="table-responsive">
-                      <table class="table">
-                        <thead>
-                          <tr>
-                            <th> Assignee </th>
-                            <th> Subject </th>
-                            <th> Status </th>
-                            <th> Last Update </th>
-                            <th> Tracking ID </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face1.jpg" class="me-2" alt="image"> David Grey
-                            </td>
-                            <td> Fund is not recieved </td>
-                            <td>
-                              <label class="badge badge-gradient-success">DONE</label>
-                            </td>
-                            <td> Dec 5, 2017 </td>
-                            <td> WD-12345 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face2.jpg" class="me-2" alt="image"> Stella Johnson
-                            </td>
-                            <td> High loading time </td>
-                            <td>
-                              <label class="badge badge-gradient-warning">PROGRESS</label>
-                            </td>
-                            <td> Dec 12, 2017 </td>
-                            <td> WD-12346 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face3.jpg" class="me-2" alt="image"> Marina Michel
-                            </td>
-                            <td> Website down for one week </td>
-                            <td>
-                              <label class="badge badge-gradient-info">ON HOLD</label>
-                            </td>
-                            <td> Dec 16, 2017 </td>
-                            <td> WD-12347 </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="assets/images/faces/face4.jpg" class="me-2" alt="image"> John Doe
-                            </td>
-                            <td> Loosing control on server </td>
-                            <td>
-                              <label class="badge badge-gradient-danger">REJECTED</label>
-                            </td>
-                            <td> Dec 3, 2017 </td>
-                            <td> WD-12348 </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
+                    <h4 class="card-title">  
+                        <a href="#" class="btn btn-block btn-lg btn-gradient-primary mt-1" data-bs-toggle="modal" data-bs-target="#addEmployeeModal" style="font-family: 'Prompt', sans-serif; font-size: 14px;">+ เพิ่มวัตถุดิบ</a>
+                        </h4>
+                        <div class="modal fade" id="addEmployeeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">เพิ่มวัตถุดิบ</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="raws/insertU" method="post">
+                                    <div class="mb-3">
+                                        <label for="ingredientName" class="form-label">ชื่อวัตถุดิบ</label>
+                                        <input type="text" class="form-control" id="rawname" name="rawname">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ingredientAmount" class="form-label">จำนวนคงเหลือ</label>
+                                        <input type="text" class="form-control" id="rawquantity" name="rawquantity">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ingredientUnit" class="form-label">หน่วยนับ</label>
+                                        <select class="form-select" id="rawunit" name="rawunit">
+                                            <option value="grams">กรัม</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                      <label for="ingredientAmount" class="form-label">ราคาต่อหน่วย</label>
+                                      <input type="text" class="form-control" id="rawunitprice" name="rawunitprice">
+                                  </div>
+                                    <button type="submit" class="btn btn-dark">บันทึก</button>
+                                </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="table-responsive" >
+                    <table class="table">
+                      <thead>
+                        <tr >
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ลำดับ</th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ชื่อวัตถุดิบ</th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">จำนวนคงเหลือ</th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">หน่วยนับ</th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ราคาต่อหน่วย</th>
+                          <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">การจัดการ</th>
+                        </tr>
+                      </thead>
+                      <tbody id="rawTableBody">
+                        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                        <script>
+                          axios.get('/raws')
+                            .then(response => {
+                              const raws = response.data;
+                              console.log('Raw Data:', raws); // Log the response for debugging
+                              const tableBody = document.getElementById('rawTableBody');
+                              tableBody.innerHTML = '';
+                              raws.forEach((raw, index) => {
+                                const row = `<tr>
+                                                <td>${index + 1}</td>
+                                                <td>${raw.rawname}</td>
+                                                <td>${raw.rawquantity}</td>
+                                                <td>${raw.rawunit}</td>
+                                                <td>${raw.rawunitprice}</td>
+                                                <td>
+                                                  <button type="button" class="btn btn-warning" data-bs-toggle="modal" style="font-family: 'Prompt', sans-serif; font-size: 14px;" data-bs-target="#editEmployeeModal" onclick="populateEditModal('${raw._id}')">แก้ไข</button>
+                                                  <a href="raws/delete/${raw._id}" class="btn btn-danger" style="font-family: 'Prompt', sans-serif; font-size: 14px;" onclick="return confirm('คุณต้องการลบหรือไม่ ?')">ลบ</a>
+                                                </td>
+                                              </tr>`;
+                        
+                                tableBody.innerHTML += row;
+                              });
+                            })
+                            .catch(error => {
+                              console.error('Error fetching raws:', error);
+                            });
+                        </script>
+                        
+                      </tbody>
+                    </table>
+                  </div>
+
+                  
                   </div>
                 </div>
               </div>
@@ -614,3 +583,48 @@
     <!-- End custom js for this page -->
   </body>
 </html>
+
+<!-- <tr>
+    <td>
+      <img src="assets/images/faces/face1.jpg" class="me-2" alt="image"> David Grey
+    </td>
+    <td> Fund is not recieved </td>
+    <td>
+      <label class="badge badge-gradient-success">DONE</label>
+    </td>
+    <td> Dec 5, 2017 </td>
+    <td> WD-12345 </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="assets/images/faces/face2.jpg" class="me-2" alt="image"> Stella Johnson
+    </td>
+    <td> High loading time </td>
+    <td>
+      <label class="badge badge-gradient-warning">PROGRESS</label>
+    </td>
+    <td> Dec 12, 2017 </td>
+    <td> WD-12346 </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="assets/images/faces/face3.jpg" class="me-2" alt="image"> Marina Michel
+    </td>
+    <td> Website down for one week </td>
+    <td>
+      <label class="badge badge-gradient-info">ON HOLD</label>
+    </td>
+    <td> Dec 16, 2017 </td>
+    <td> WD-12347 </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="assets/images/faces/face4.jpg" class="me-2" alt="image"> John Doe
+    </td>
+    <td> Loosing control on server </td>
+    <td>
+      <label class="badge badge-gradient-danger">REJECTED</label>
+    </td>
+    <td> Dec 3, 2017 </td>
+    <td> WD-12348 </td>
+  </tr> -->

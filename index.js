@@ -10,7 +10,7 @@ const path = require('path');
 require('dotenv').config();
 const db = mongoose.connection;
 db.on('error',(error)=>console.log(error));
-db.once('open',()=>console.log('connectdatabase'))
+db.once('open',()=>console.log('Database Already'))
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended:false}));
@@ -46,7 +46,7 @@ const index_productController = require('./controllers/index_productController')
 const orderController = require('./controllers/orderController')
 const rawController = require('./controllers/rawController')
 const productUController = require('./controllers/productUController');
-const paymentcashController = require('./controllers/paymentcashController');
+const rawUController = require('./controllers/rawUController');
 const homeUController = require('./controllers/homeUController');
 const paymentoptionsController = require('./controllers/paymentoptionsController');
 const editproductUController  = require('./controllers/editproductController');
@@ -89,7 +89,7 @@ app.get('/index_product',authMiddleware,index_productController)
 app.get('/product',authMiddleware,productController)
 app.get('/order',authMiddleware,orderController)
 app.get('/raw',authMiddleware,rawController)
-app.get('/paymentcash',authMiddleware,paymentcashController)
+app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/paymentoptions',authMiddleware,paymentoptionsController)
 app.get('/productU',authMiddleware,productUController)
