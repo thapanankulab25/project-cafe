@@ -1,4 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+  </head>
+  <body  style="font-family: 'Prompt', sans-serif; font-size: 30px;">
+    <div class="container-scroller">
+      <div class="container-fluid page-body-wrapper full-page-wrapper">
+        <div class="content-wrapper d-flex align-items-center auth">
+          <div class="row flex-grow">
+            <div class="col-lg-4 mx-auto">
+              <div class="auth-form-light text-left p-5">
+                <center><h4 style="font-family: 'Prompt', sans-serif; font-size: 20px;">เข้าสู่ระบบ</h4> </center>
+                <form class="pt-3" action="/user/login" method="POST">
+                  <div class="form-group">
+                    <input type="text" class="form-control form-control-lg" name="username" placeholder="Username" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control form-control-lg" name="password" placeholder="Password" style="font-family: 'Prompt', sans-serif; font-size: 14px;">
+                  </div>
+                  <div class="mt-3">
+                    <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" type="submit" style="font-family: 'Prompt', sans-serif; font-size: 14px;">เข้าสู่ระบบ</button>
+                  </div>
+                  <div class="my-2 d-flex justify-content-between align-items-center">
+                  </div>
+                 
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <!-- endinject -->
+  </body>
+</html>
+
+<!-- <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,11 +77,9 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     
-
-    <!-- Bootstrap core CSS -->
 <link href="/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-    <!-- Favicons -->
+
 <link rel="apple-touch-icon" href="/docs/5.0/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -23,7 +88,6 @@
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
 
-<!--fonts-->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
@@ -54,8 +118,7 @@
       }
     </style>
 
-    
-    <!-- Custom styles for this template -->
+
     <link href="/css/signin.css" rel="stylesheet">
   </head>
   <body class="text-center">
@@ -74,46 +137,7 @@
       <label for="floatingPassword">รหัสผ่าน</label>
     </div>
     <button class="w-100 btn btn-lg btn-dark" type="submit">เข้าสู่ระบบ</button>
-    <!-- <p class="mt-3 mb-3 text-muted"> <a href="/register"> สมัครสมาชิก</p></a> -->
   </form>
 </main>     
   </body>
-</html>
-
-
-<!-- <script>
-	const fullscreenButton = document.getElementById('fullscreen-button');
-	
-	fullscreenButton.addEventListener('click', toggleFullScreen);
-  
-	function toggleFullScreen() {
-	  if (document.fullscreenElement) {
-		exitFullScreen();
-	  } else {
-		enterFullScreen();
-	  }
-	}
-  
-	function enterFullScreen() {
-	  if (document.documentElement.requestFullscreen) {
-		document.documentElement.requestFullscreen();
-	  } else if (document.documentElement.mozRequestFullScreen) { // Firefox
-		document.documentElement.mozRequestFullScreen();
-	  } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari and Opera
-		document.documentElement.webkitRequestFullscreen();
-	  } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
-		document.documentElement.msRequestFullscreen();
-	  }
-	}
-	function exitFullScreen() {
-	  if (document.exitFullscreen) {
-		document.exitFullscreen();
-	  } else if (document.mozCancelFullScreen) { // Firefox
-		document.mozCancelFullScreen();
-	  } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
-		document.webkitExitFullscreen();
-	  } else if (document.msExitFullscreen) { // IE/Edge
-		document.msExitFullscreen();
-	  }
-	}
-  </script> -->
+</html> -->

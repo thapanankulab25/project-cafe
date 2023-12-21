@@ -95,7 +95,7 @@ app.get('/paymentoptions',authMiddleware,paymentoptionsController)
 app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/productU',authMiddleware,productUController)
-app.post('/products/editproductU',editproductUController)
+app.post('/editproductU',authMiddleware,editproductUController)
 
 
 
