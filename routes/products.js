@@ -56,6 +56,16 @@ router.delete('/:id', (req, res, next) => { // delete products
     });
 });
 
+router.put('/updateU/:id', (req, res, next) => {
+  Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(updatedProduct => {
+      res.json(updatedProduct);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 //with web
 router.get('/delete/:id', (req, res, next) => {
   Product.findByIdAndDelete(req.params.id)
@@ -67,26 +77,7 @@ router.get('/delete/:id', (req, res, next) => {
     });
 });
 
-router.put('/update/:id', (req, res, next) => {
-  Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then(updatedProduct => {
-      res.json(updatedProduct);
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-
-// router.post('/update', (req, res, next) => {
-//   Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
-//     .then(updatedProduct => {
-//       res.redirect('/product')
-//     })
-//     .catch(err => {
-//       next(err);
-//     });
-// });
-router.post('/update/:id', (req, res, next) => {
+router.get('/update/:id', (req, res, next) => {
   Product.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then(updatedProduct => {
       res.json(updatedProduct);
@@ -107,10 +98,16 @@ router.get('/deleteU/:id', (req, res, next) => {
     });
 });
 
-
-
-
-
+router.post('/editproductU', (req, res) => {
+  const edit_id = req.body.edit_id;
+  Product.findById(edit_id).exec((err, doc) => {
+    if (err) {
+      console.error('Error finding product:', err);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+    console.log('productU', { product: doc });
+  });
+});
 
 
 
@@ -145,6 +142,7 @@ router.post('/insert', upload.single('image'), async (req, res, next) => {
 
 });
 
+// Multer Images User
 router.post('/insertU', upload.single('image'), async (req, res, next) => {
   try {
     console.log('Received form data:', req.body);

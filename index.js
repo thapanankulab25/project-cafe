@@ -49,7 +49,7 @@ const productUController = require('./controllers/productUController');
 const rawUController = require('./controllers/rawUController');
 const homeUController = require('./controllers/homeUController');
 const paymentoptionsController = require('./controllers/paymentoptionsController');
-const editproductUController  = require('./controllers/editproductController');
+const editproductUController  = require('./controllers/editproductUController');
 
 mongoose.Promise = global.Promise;
 //connectdatabase
@@ -89,11 +89,13 @@ app.get('/index_product',authMiddleware,index_productController)
 app.get('/product',authMiddleware,productController)
 app.get('/order',authMiddleware,orderController)
 app.get('/raw',authMiddleware,rawController)
+app.get('/paymentoptions',authMiddleware,paymentoptionsController)
+
+//get user
 app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
-app.get('/paymentoptions',authMiddleware,paymentoptionsController)
 app.get('/productU',authMiddleware,productUController)
-app.get('/editproductU',editproductUController)
+app.post('/products/editproductU',editproductUController)
 
 
 
