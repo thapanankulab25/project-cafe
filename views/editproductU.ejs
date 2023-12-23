@@ -25,50 +25,53 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-          
                   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                    <i class="mdi mdi-border-color">  </i><h1 style="font-family: 'Prompt', sans-serif; font-size: 18px;">แก้ไขข้อมูลสินค้า</h1>
+                    <i class="mdi mdi-border-color"></i>
+                    <h1 style="font-family: 'Prompt', sans-serif; font-size: 18px;">แก้ไขข้อมูลสินค้า</h1>
                   </div>
                 </div>
-                <form class="pt-3">
+                <form action="/updateProduct" method="POST" class="pt-3">
                   <div class="form-group">
-                    ID 
-                    <input type="text" class="form-control form-control-lg" id="name" value="${product._id}" disabled>
+                    <label for="productId">Product ID</label>
+                    <input type="text" class="form-control form-control-lg" id="productId" name="productId" value="${product._id}" >
                   </div>
                   <div class="form-group">
-                    ชื่อสินค้า
-                    <input type="text" class="form-control form-control-lg" id="name" value="${product._id}">
+                    <label for="productName">ชื่อสินค้า</label>
+                    <input type="text" class="form-control form-control-lg" id="productName" name="productName" value="${product.productname}">
                   </div>
                   <div class="form-group">
-                    ประเภท
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                    <label for="productType">ประเภท</label>
+                    <input type="text" class="form-control form-control-lg" id="productType" name="productType" value="${product.type}">
                   </div>
                   <div class="form-group">
-                    <label for="price">ราคา</label>
-                    <select class="form-control form-control-lg" id="price" name="price">
-                        <option value="100">100 บาท</option>
-                        <option value="200">200 บาท</option>
-                        <option value="300">300 บาท</option>
+                    <label for="productPrice">ราคา</label>
+                    <select class="form-control form-control-lg" id="productPrice" name="productPrice">
+                      <option value="100" >100 บาท</option>
+                      <option value="200" >200 บาท</option>
+                      <option value="300">300 บาท</option>
                     </select>
-                </div>                
+                  </div>
                   <div class="mt-3">
-                    <a class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">Update</a>
-                  </div>
-                  <div class="my-2 d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                      <label class="form-check-label text-muted">
-                    </div>
-                  </div>
+                    <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">Update</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <!-- content-wrapper ends -->
       </div>
-      <!-- page-body-wrapper ends -->
+      <!-- content-wrapper ends -->
     </div>
+    <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+  
+    <!-- ... (unchanged) ... -->
+    
+
+
+                
+              
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>

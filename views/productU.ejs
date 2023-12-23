@@ -110,7 +110,6 @@
                         .then(response => {
                             const products = response.data;
                             const tableBody = document.getElementById('productTableBody');
-                
                             products.forEach((product, index) => {
                                 const row = `<tr>
                                                 <td>${index+1}</td>
@@ -120,12 +119,9 @@
                                                 <td>${product.productname}</td>
                                                 <td>${product.type}</td>
                                                 <td>${product.price}</td>
-                                                <td></td> <!-- Empty cell for spacing -->
+                                                <td></td>
                                                 <td>
-                                                  <form action="/editproductU" method="POST">
-                                                    <input type="text" class="form-control" name="edit_id" value="${product._id}">
-                                                    <button type="submit" class="btn btn-warning" style="font-family: 'Prompt', sans-serif; font-size: 14px;" data-bs-toggle="modal">แก้ไข</button>
-                                                  </form>
+                                                     <a href="products/editproductU/${product._id}" class="btn btn-warning" style="font-family: 'Prompt', sans-serif; font-size: 14px;" >แก้ไข</button>
                                                 </td>
                                                 <td>
                                                     <a href="products/deleteU/${product._id}" class="btn btn-danger" style="font-family: 'Prompt', sans-serif; font-size: 14px;" onclick="return confirm('คุณต้องการลบหรือไม่ ?')">ลบ</a>
@@ -146,11 +142,7 @@
                 </div>
               </div>
             </div>
-
-
-
          <%- include('layout/footerU') -%>
-
         </div>
         <!-- main-panel ends -->
       </div>

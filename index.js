@@ -23,7 +23,7 @@ app.use(expressSession({
  })
  );
 
- app.set('view engine', 'ejs')
+ app.set('view engine','ejs')
 
  app.use((req,res,next)=>{
     res.locals.message = req.session.message;
@@ -48,16 +48,16 @@ const rawController = require('./controllers/rawController')
 const productUController = require('./controllers/productUController');
 const rawUController = require('./controllers/rawUController');
 const homeUController = require('./controllers/homeUController');
-const paymentoptionsController = require('./controllers/paymentoptionsController');
+// const paymentoptionsController = require('./controllers/paymentoptionsController');
 const editproductUController  = require('./controllers/editproductUController');
+const editprofileUController  = require('./controllers/editprofileUController');
 
 mongoose.Promise = global.Promise;
 //connectdatabase
 mongoose.connect('mongodb+srv://nicekrubma10:kulab12345@cluster0.uqjxafb.mongodb.net/?retryWrites=true&w=majority',
 {useNewUrlParser: true})
 
-// app.use(express.urlencoded());
-// app.use(express.json());
+
 app.use(express.static('public'))
 app.use(flash())
 
@@ -89,22 +89,17 @@ app.get('/index_product',authMiddleware,index_productController)
 app.get('/product',authMiddleware,productController)
 app.get('/order',authMiddleware,orderController)
 app.get('/raw',authMiddleware,rawController)
-app.get('/paymentoptions',authMiddleware,paymentoptionsController)
+// app.get('/paymentoptions',authMiddleware,paymentoptionsController)
+app.get('/editproductU',authMiddleware,editproductUController)
+app.get('/editprofileU',authMiddleware,editprofileUController)
 
 //get user
 app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/productU',authMiddleware,productUController)
-app.post('/editproductU',authMiddleware,editproductUController)
+// app.get('/editproductU',authMiddleware,productUController)
 
 
-
-// const path = require('path');
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-// const router= require('./routes/products')
-// app.use(router)
-// app.use(express.static(path.join(__dirname, 'public')))
 
 //Api add Products
 const products = require('./routes/products')

@@ -1,5 +1,0 @@
-git add . //เพิ่มเพื่อ update
-git commit -m "--ชื่อที่ตั้ง--" //สร้างชื่อเพื่อ update 
-git status //เช็คสถานะที่ทำไป
-git push //ผลักเพื่อเข้าสู่ Server
---update 12/18/2023--

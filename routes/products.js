@@ -91,25 +91,38 @@ router.get('/update/:id', (req, res, next) => {
 router.get('/deleteU/:id', (req, res, next) => {
   Product.findByIdAndDelete(req.params.id)
     .then(deletedProduct => {
-      res.redirect('/productU')
+      res.direct('/productU')
     })
     .catch(err => {
       next(err);
     });
 });
 
-router.post('/editproductU', (req, res) => {
-  const edit_id = req.body.edit_id;
-  Product.findById(edit_id).exec((err, doc) => {
-    if (err) {
-      console.error('Error finding product:', err);
-      return res.status(500).json({ error: 'Internal Server Error' });
-    }
-    console.log('productU', { product: doc });
-  });
+// router.post('products/editproductU', (req, res) => {
+//   const edit_id = req.body.edit_id;
+//   Product.findById(edit_id).exec((err, doc) => {
+//     if (err) {
+//       console.error('Error finding product:', err);
+//       return res.status(500).json({ error: 'Internal Server Error' });
+//     }
+//     console.log('productU', { product: doc });
+//   });
+// });
+router.get('/editproductU/:id', (req, res, next) => {
+  Product.findById(req.params.id)
+    .then(editProduct => {
+      // Check if the product is found
+      if (!editProduct) {
+        return res.status(404).json({ error: 'Product not found' });
+      }
+
+      // Render the 'editproductU' view with the editProduct data
+      res.render('editproductU', { editProduct });
+    })
+    .catch(err => {
+      next(err);
+    });
 });
-
-
 
 // Multer Images Admin
 const multer = require('multer');
