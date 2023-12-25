@@ -33,8 +33,8 @@
                 <form action="/updateProduct" method="POST" class="pt-3">
                   <div class="form-group">
                     <label for="productId">Product ID</label>
-                    <input type="text" class="form-control form-control-lg" id="productId" name="productId" value="${product._id}" >
-                  </div>
+                    <input type="text" class="form-control form-control-lg" id="productId" name="productId" value="${product.productname}" >
+                    </div>
                   <div class="form-group">
                     <label for="productName">ชื่อสินค้า</label>
                     <input type="text" class="form-control form-control-lg" id="productName" name="productName" value="${product.productname}">
@@ -67,6 +67,8 @@
     <!-- container-scroller -->
   
     <!-- ... (unchanged) ... -->
+
+ 
     
 
 

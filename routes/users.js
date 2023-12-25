@@ -44,6 +44,36 @@ router.get('/delete/:id', (req, res, next) => {
     });
 });
 
+router.post('/updateU/:id', async (req, res, next) => {
+  const userId = req.params.userId;
+
+  try {
+    // Assuming you have a User model with appropriate schema
+    const updatedUser = await User.findByIdAndUpdate(userId, {
+      username: req.body.username,
+      password: req.body.password,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address,
+      role: req.body.role,
+      image: req.file.filename, // Assuming you are using multer for file uploads
+    }, { new: true });
+
+    // Check if the user was found and updated successfully
+    if (!updatedUser) {
+      return res.status(404).send('User not found');
+    }
+
+    res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
 // router.post('/insert', (req, res, next) => { //Create products
 //   User.create(req.body)
 //     .then(users => {

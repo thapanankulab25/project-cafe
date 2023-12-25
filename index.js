@@ -34,8 +34,6 @@ app.use(expressSession({
 //require
 const indexController = require('./controllers/indexController')
 const loginController = require('./controllers/loginController')
-const registerController = require('./controllers/registerController')
-const storeUserController = require('./controllers/storeUserController')
 const loginUserController = require('./controllers/loginUserController')
 const logoutController = require('./controllers/logoutController')
 const homeController = require('./controllers/homeController')
@@ -48,7 +46,6 @@ const rawController = require('./controllers/rawController')
 const productUController = require('./controllers/productUController');
 const rawUController = require('./controllers/rawUController');
 const homeUController = require('./controllers/homeUController');
-// const paymentoptionsController = require('./controllers/paymentoptionsController');
 const editproductUController  = require('./controllers/editproductUController');
 const editprofileUController  = require('./controllers/editprofileUController');
 
@@ -68,10 +65,9 @@ app.use("*",(req,res,next)=>{
     next()
 })
 
+//middleware
 const redirectAuth = require('./middleware/redirectAuth')
 const authMiddleware = require('./middleware/authMiddleware')
-const authCRUD = require('./middleware/authCRUD')
-
 
 //get
 // app.get('/', indexController)
@@ -79,8 +75,6 @@ app.get('/index',indexController)
 app.get('/', loginController)
 app.get('/home',authMiddleware,homeController)
 app.get('/login', redirectAuth,loginController)
-app.get('/register',authMiddleware,registerController)
-app.post('/user/register', redirectAuth,storeUserController)
 app.get('/employee',authMiddleware,employeeController)
 app.post('/user/login', redirectAuth,loginUserController)
 app.get('/error',errorController)
@@ -89,7 +83,7 @@ app.get('/index_product',authMiddleware,index_productController)
 app.get('/product',authMiddleware,productController)
 app.get('/order',authMiddleware,orderController)
 app.get('/raw',authMiddleware,rawController)
-// app.get('/paymentoptions',authMiddleware,paymentoptionsController)
+
 app.get('/editproductU',authMiddleware,editproductUController)
 app.get('/editprofileU',authMiddleware,editprofileUController)
 
@@ -97,7 +91,7 @@ app.get('/editprofileU',authMiddleware,editprofileUController)
 app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/productU',authMiddleware,productUController)
-// app.get('/editproductU',authMiddleware,productUController)
+app.get('/editproductU',authMiddleware,productUController)
 
 
 

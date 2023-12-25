@@ -3,16 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const Product = require('../models/Product.js');
 
-router.get('/', (req, res, next) => { //get ข้อมูลทั้งหมด
-  Product.find()
-    .then(products => {
-      res.json(products);
-    })
-    .catch(err => {
-      next(err);
-    });
-});
-
 router.get('/:id', (req, res, next) => { //find products
     Product.findById(req.params.id)
         .then(product => {
@@ -88,41 +78,41 @@ router.get('/update/:id', (req, res, next) => {
 });
 
 // with user
-router.get('/deleteU/:id', (req, res, next) => {
-  Product.findByIdAndDelete(req.params.id)
-    .then(deletedProduct => {
-      res.direct('/productU')
+
+router.get('/', (req, res, next) => { //read
+  Product.find().exec()
+    .then(products => {
+      res.json(products);
     })
     .catch(err => {
       next(err);
     });
 });
 
-// router.post('products/editproductU', (req, res) => {
-//   const edit_id = req.body.edit_id;
-//   Product.findById(edit_id).exec((err, doc) => {
-//     if (err) {
-//       console.error('Error finding product:', err);
-//       return res.status(500).json({ error: 'Internal Server Error' });
-//     }
-//     console.log('productU', { product: doc });
-//   });
-// });
-router.get('/editproductU/:id', (req, res, next) => {
+router.get('/deleteU/:id', (req, res, next) => { //delete
+  Product.findByIdAndDelete(req.params.id)
+    .then(deletedProduct => {
+      res.redirect('/productU')
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.get('/editproductU/:id', (req, res, next) => { //get parameter
   Product.findById(req.params.id)
     .then(editProduct => {
-      // Check if the product is found
       if (!editProduct) {
         return res.status(404).json({ error: 'Product not found' });
       }
-
-      // Render the 'editproductU' view with the editProduct data
-      res.render('editproductU', { editProduct });
+      res.redirect('/editproductU')
     })
     .catch(err => {
       next(err);
     });
 });
+
+
 
 // Multer Images Admin
 const multer = require('multer');
@@ -156,7 +146,7 @@ router.post('/insert', upload.single('image'), async (req, res, next) => {
 });
 
 // Multer Images User
-router.post('/insertU', upload.single('image'), async (req, res, next) => {
+router.post('/insertU', upload.single('image'), async (req, res, next) => { // insert
   try {
     console.log('Received form data:', req.body);
     console.log('Received file:', req.file);
@@ -167,19 +157,13 @@ router.post('/insertU', upload.single('image'), async (req, res, next) => {
       price: req.body.price,
       image: req.file.filename,
     });
-
+    console.log(req.query);
     res.redirect('/productU');
   } catch (err) {
     console.error('Error:', err);
     next(err);
   }
 });
-
-
-
-
-
-
 
 
 // router.post('/update', async (req, res, next) => {
