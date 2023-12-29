@@ -48,6 +48,7 @@ const rawUController = require('./controllers/rawUController');
 const homeUController = require('./controllers/homeUController');
 const editproductUController  = require('./controllers/editproductUController');
 const editprofileUController  = require('./controllers/editprofileUController');
+const orderUController = require('./controllers/orderUController');
 
 mongoose.Promise = global.Promise;
 //connectdatabase
@@ -83,6 +84,9 @@ app.get('/index_product',authMiddleware,index_productController)
 app.get('/product',authMiddleware,productController)
 app.get('/order',authMiddleware,orderController)
 app.get('/raw',authMiddleware,rawController)
+app.get('/orderU',authMiddleware,orderUController)
+
+app.post('products/editU',authMiddleware,editproductUController)
 
 app.get('/editproductU',authMiddleware,editproductUController)
 app.get('/editprofileU',authMiddleware,editprofileUController)

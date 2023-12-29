@@ -78,6 +78,21 @@ router.get('/update/:id', (req, res, next) => {
 });
 
 // with user
+router.get('/:productId', (req, res, next) => { // read a specific product by ID
+  const productId = req.params.productId;
+  Product.findById(productId).exec()
+    .then(product => {
+      if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+      res.json(product);
+    })
+    .catch(err => {
+      // Handle errors
+      next(err);
+    });
+});
+
 
 router.get('/', (req, res, next) => { //read
   Product.find().exec()
@@ -99,7 +114,7 @@ router.get('/deleteU/:id', (req, res, next) => { //delete
     });
 });
 
-router.get('/editproductU/:id', (req, res, next) => { //get parameter
+router.post('/editproductU/:id', (req, res, next) => { //get parameter
   Product.findById(req.params.id)
     .then(editProduct => {
       if (!editProduct) {
@@ -110,6 +125,55 @@ router.get('/editproductU/:id', (req, res, next) => { //get parameter
     .catch(err => {
       next(err);
     });
+});
+
+// router.post('/editU', (req, res) => { 
+//   const edit_id = req.body.edit_id
+//   Product.findOne({_id:edit_id_id}).exec((err,doc)=>{
+//     console.log(doc)
+//   })
+// })
+
+// router.post('/editU/:id', (req, res) => { 
+//   const edit_id = req.params.id;
+
+//   Product.findOne({ _id:edit_id }).exec((err, doc) => {
+//     if (err) {
+//       console.error(err);
+//       return res.status(500).send('Internal Server Error');
+//     }
+
+//     if (!doc) {
+//       return res.status(404).send('Product not found');
+//     }
+
+//     console.log(doc);
+//     res.send(doc);
+//   });
+// });
+
+router.post('/editU/:id', async (req, res) => {
+  try {
+    const productId = req.params.id;
+    const editId = req.body.edit_id;
+
+    // Assuming you want to update the product with the provided _id
+    const updatedProduct = await Product.findOneAndUpdate(
+      { _id: productId },
+      { $set: { id: editId } }, // Modify this according to your actual update logic
+      { new: true }
+    ).exec();
+
+    if (!updatedProduct) {
+      return res.status(404).send('Product not found');
+    }
+
+    // Redirect to '/editproductU' with the updated product ID as a query parameter
+    res.redirect(`/editproductU?id=${updatedProduct._id}`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 
