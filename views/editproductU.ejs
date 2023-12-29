@@ -18,21 +18,26 @@
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
   </head>
 
-  <style>
-    .img-semi-circle {
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  
-  
-  </style>
+
 
   <body style="font-family: 'Prompt', sans-serif; font-size: 14px;">
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth">
           <div class="row flex-grow">
-            <div class="col-lg-4 mx-auto">
+            <div class="col-lg-4 mx-auto" >
+              <a href="/productU">
+                <button type="button" class="btn btn-outline-primary" style="font-family: 'Prompt', sans-serif; font-size: 14px;">กลับ</button>
+                </button>
+              </a>                         
+              <br>
+              <br>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="/productU">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">แก้ไขข้อมูลสินค้า</li>
+                </ol>
+              </nav>
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
                   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -42,8 +47,25 @@
                 </div>
                 <form action="/updateProduct" method="POST" class="pt-3">
                   <div class="form-group">
-                    <label for="productImage">รูปสินค้า</label>
-                    <img src="/images/products/<%= product.image %>"class="img-fluid">
+                    <div class="image-container">
+                      <img src="/images/products/<%= product.image %>" class="img-fluid circular-image">
+                    </div>                    
+                    <style>
+                     .image-container {
+                     display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 200px;
+                    }
+                    .circular-image {
+                      width: 150px;
+                      height: 150px;
+                      border-radius: 50%;
+                      overflow: hidden;
+                      object-fit: cover;
+                    }
+
+                    </style>
                   </div>
                   <div class="form-group">
                     <label for="productId">Product ID</label>
@@ -67,7 +89,7 @@
                   <div class="form-group">
                     <label for="productPrice">ราคา</label>
                     <input type="text" class="form-control form-control-lg" id="productPrice" name="productPrice" value="<%= product.price %>"
-                    style="font-family: 'Prompt', sans-serif; font-size: 14px;" >
+                    style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                   </div>
                   <div class="mt-3">
                     <button type="submit" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">Update</button>
