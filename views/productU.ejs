@@ -34,7 +34,6 @@
               <nav aria-label="breadcrumb">
                 <ul class="breadcrumb">
                   <li class="breadcrumb-item active" aria-current="page">
-                    
                   </li>
                 </ul>
               </nav>
@@ -89,59 +88,32 @@
                         <thead>
                             <tr>
                                 <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ลำดับ</th>
+                                <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">รูป</th>
                                 <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ชื่อวัตถุดิบ</th>
-                                <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">จำนวนคงเหลือ</th>
                                 <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">หน่วยนับ</th>
                                 <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ราคาต่อหน่วย</th>
-                                <th style="font-family: 'Prompt', sans-serif; font-size: 14px;"></th>
-                                <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">แก้ไข</th>
-                                <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">ลบ</th>
+                                <th style="font-family: 'Prompt', sans-serif; font-size: 14px;">จัดการ</th>
                             </tr>
                         </thead>
-                        <tbody id="productTableBody"></tbody>
+                        <tbody id="productTableBody">
+                            <% products.forEach((product, index) => { %>
+                                <tr>
+                                    <td><%= index + 1 %></td>
+                                    <td><img src="/images/products/<%= product.image %>" alt="Product Image" style="width: 50px; height: 50px; object-fit: cover;"></td>
+                                    <td><%= product.productname %></td>
+                                    <td><%= product.type %></td>
+                                    <td><%= product.price %></td>
+                                    <td>
+                                        <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="populateEditModal('<%= product._id %>')" style="font-family: 'Prompt', sans-serif; font-size: 14px;">แก้ไข</a>
+                                        <a href="products/delete/<%= product._id %>" class="btn btn-danger" onclick="return confirm('คุณต้องการลบหรือไม่ ?')">ลบ</a>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
                     </table>
                 </div>
                 
-                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone.min.js"></script>
-                <script>
-                    axios.get('/products')
-                        .then(response => {
-                            const products = response.data;
-                            const tableBody = document.getElementById('productTableBody');
-                            products.forEach((product, index) => {
-                                const row = `<tr>
-                                                <td>${index+1}</td>
-                                                <td class="py-1">
-                                                    <img src="/images/products/${product.image}" alt="Product Image" style="width: 50px; height: 50px; object-fit: cover;">
-                                                </td>
-                                                <td>${product.productname}</td>
-                                                <td>${product.type}</td>
-                                                <td>${product.price}</td>
-                                                <td></td>
-                                                <td>
-                                                     <a href="products/editproductU/${product._id}" class="btn btn-warning" style="font-family: 'Prompt', sans-serif; font-size: 14px;" >แก้ไข</button>
-                                                </td>
-                                                <td>
-                                                    <a href="products/deleteU/${product._id}" class="btn btn-danger" style="font-family: 'Prompt', sans-serif; font-size: 14px;" onclick="return confirm('คุณต้องการลบหรือไม่ ?')">ลบ</a>
-                                                </td>
-                                            </tr>`;
-                
-                                tableBody.innerHTML += row;
-                            });
-                        })
-                        .catch(error => {
-                            console.error('Error fetching products:', error);
-                        });
-                </script>
-                      </tbody>
-                    </table>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
          <%- include('layout/footerU') -%>
         </div>
         <!-- main-panel ends -->
