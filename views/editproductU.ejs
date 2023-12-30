@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Purple Admin</title>
+    <title>แก้ไขข้อมูลสินค้า</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -15,17 +15,15 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="../../assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/10021/10021404.png" />
   </head>
-
-
 
   <body style="font-family: 'Prompt', sans-serif; font-size: 14px;">
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper">
         <div class="content-wrapper d-flex align-items-center auth">
           <div class="row flex-grow">
-            <div class="col-lg-4 mx-auto" >
+            <div class="col-lg-8 mx-auto" >
               <a href="/productU">
                 <button type="button" class="btn btn-outline-primary" style="font-family: 'Prompt', sans-serif; font-size: 14px;">กลับ</button>
                 </button>
@@ -45,11 +43,36 @@
                     <h1 style="font-family: 'Prompt', sans-serif; font-size: 18px;">แก้ไขข้อมูลสินค้า</h1>
                   </div>
                 </div>
-                <form action="products/updateU" method="POST" class="pt-3">
+                <form action="products/updateU" method="POST" class="pt-3" enctype="multipart/form-data">
                   <div class="form-group">
                     <div class="image-container">
                       <img src="/images/products/<%= product.image %>" class="img-fluid circular-image">
-                    </div>                    
+                    </div> 
+                    <div class="form-group">
+                    <label>File upload</label>
+                    <input type="file" name="image" id="image" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                      <span class="input-group-append">
+                        <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                      </span>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+                    <script>
+                      $(document).ready(function() {
+                        $('.file-upload-browse').on('click', function() {
+                          $('.file-upload-default').click();
+                        });
+                    
+                        $('.file-upload-default').on('change', function() {
+                          $('.form-control.file-upload-info').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+                        });
+                      });
+                    </script>
+                    
+                    
+                    
+
                     <style>
                      .image-container {
                      display: flex;
@@ -87,7 +110,7 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="productPrice">ราคา</label>
+                    <label for="productPrice">ราคา ฿</label>
                     <input type="text" class="form-control form-control-lg" id="price" name="price" value="<%= product.price %>"
                     style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                   </div>

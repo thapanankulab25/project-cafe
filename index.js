@@ -95,7 +95,7 @@ app.get('/editprofileU',authMiddleware,editprofileUController)
 app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/productU',authMiddleware,productUController)
-app.get('/editproductU',authMiddleware,productUController)
+// app.get('/editproductU',authMiddleware,productUController)
 
 
 

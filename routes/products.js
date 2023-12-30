@@ -103,23 +103,23 @@ router.get('/', (req, res, next) => { //read
     });
 });
 
-router.post('/updateU', async (req, res, next) => { //update
-  try {
-    const update_id = req.body.update_id;
-    const data = {
-      productname: req.body.productname,
-      type: req.body.type,
-      price: req.body.price,
-    };
-    console.log(update_id);
-    console.log(data);
-    await Product.findByIdAndUpdate(update_id, data, { useFindAndModify: false });
-    res.redirect('/productU');
-  } catch (err) {
-    console.error('Error updating product:', err);
-    res.status(500).send('Internal Server Error');
-  }
-});
+// router.post('/updateU', async (req, res, next) => { //update
+//   try {
+//     const update_id = req.body.update_id;
+//     const data = {
+//       productname: req.body.productname,
+//       type: req.body.type,
+//       price: req.body.price,
+//     };
+//     console.log(update_id);
+//     console.log(data);
+//     await Product.findByIdAndUpdate(update_id, data, { useFindAndModify: false });
+//     res.redirect('/productU');
+//   } catch (err) {
+//     console.error('Error updating product:', err);
+//     res.status(500).send('Internal Server Error');
+//   }
+// });
 
 router.get('/deleteU/:id', (req, res, next) => { //delete
   Product.findByIdAndDelete(req.params.id)
@@ -130,7 +130,6 @@ router.get('/deleteU/:id', (req, res, next) => { //delete
       next(err);
     });
 });
-
 
 router.post('/editproductU/:id', (req, res, next) => { //get parameter
   Product.findById(req.params.id)
@@ -144,6 +143,7 @@ router.post('/editproductU/:id', (req, res, next) => { //get parameter
       next(err);
     });
 });
+
 router.post('/editU/:id', async (req, res) => { //get data to update
   try {
     const productId = req.params.id;
@@ -153,7 +153,6 @@ router.post('/editU/:id', async (req, res) => { //get data to update
       { $set: { id: editId } }, 
       { new: true }
     ).exec();
-
     if (!updatedProduct) {
       return res.status(404).send('Product not found');
     }
@@ -215,6 +214,28 @@ router.post('/insertU', upload.single('image'), async (req, res, next) => { // i
   }
 });
 
+router.post('/updateU', upload.single('image'), async (req, res, next) => {
+  try {
+    const update_id = req.body.update_id;
+    const data = {
+      productname: req.body.productname,
+      type: req.body.type,
+      price: req.body.price,
+    };
+
+    if (req.file) {
+      data.image = req.file.filename;
+    }
+    console.log(update_id);
+    console.log(data);
+
+    await Product.findByIdAndUpdate(update_id, data, { useFindAndModify: false });
+    res.redirect('/productU');
+  } catch (err) {
+    console.error('Error updating product:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 module.exports = router;
 
