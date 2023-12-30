@@ -88,7 +88,6 @@ router.get('/:productId', (req, res, next) => { // read a specific product by ID
       res.json(product);
     })
     .catch(err => {
-      // Handle errors
       next(err);
     });
 });
@@ -104,6 +103,24 @@ router.get('/', (req, res, next) => { //read
     });
 });
 
+router.post('/updateU', async (req, res, next) => { //update
+  try {
+    const update_id = req.body.update_id;
+    const data = {
+      productname: req.body.productname,
+      type: req.body.type,
+      price: req.body.price,
+    };
+    console.log(update_id);
+    console.log(data);
+    await Product.findByIdAndUpdate(update_id, data, { useFindAndModify: false });
+    res.redirect('/productU');
+  } catch (err) {
+    console.error('Error updating product:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 router.get('/deleteU/:id', (req, res, next) => { //delete
   Product.findByIdAndDelete(req.params.id)
     .then(deletedProduct => {
@@ -113,6 +130,7 @@ router.get('/deleteU/:id', (req, res, next) => { //delete
       next(err);
     });
 });
+
 
 router.post('/editproductU/:id', (req, res, next) => { //get parameter
   Product.findById(req.params.id)
@@ -126,49 +144,19 @@ router.post('/editproductU/:id', (req, res, next) => { //get parameter
       next(err);
     });
 });
-
-// router.post('/editU', (req, res) => { 
-//   const edit_id = req.body.edit_id
-//   Product.findOne({_id:edit_id_id}).exec((err,doc)=>{
-//     console.log(doc)
-//   })
-// })
-
-// router.post('/editU/:id', (req, res) => { 
-//   const edit_id = req.params.id;
-
-//   Product.findOne({ _id:edit_id }).exec((err, doc) => {
-//     if (err) {
-//       console.error(err);
-//       return res.status(500).send('Internal Server Error');
-//     }
-
-//     if (!doc) {
-//       return res.status(404).send('Product not found');
-//     }
-
-//     console.log(doc);
-//     res.send(doc);
-//   });
-// });
-
-router.post('/editU/:id', async (req, res) => {
+router.post('/editU/:id', async (req, res) => { //get data to update
   try {
     const productId = req.params.id;
     const editId = req.body.edit_id;
-
-    // Assuming you want to update the product with the provided _id
     const updatedProduct = await Product.findOneAndUpdate(
       { _id: productId },
-      { $set: { id: editId } }, // Modify this according to your actual update logic
+      { $set: { id: editId } }, 
       { new: true }
     ).exec();
 
     if (!updatedProduct) {
       return res.status(404).send('Product not found');
     }
-
-    // Redirect to '/editproductU' with the updated product ID as a query parameter
     res.redirect(`/editproductU?id=${updatedProduct._id}`);
   } catch (err) {
     console.error(err);
@@ -176,9 +164,7 @@ router.post('/editU/:id', async (req, res) => {
   }
 });
 
-
-
-// Multer Images Admin
+// Multer Images Admin and insert 
 const multer = require('multer');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -230,6 +216,8 @@ router.post('/insertU', upload.single('image'), async (req, res, next) => { // i
 });
 
 
+module.exports = router;
+
 // router.post('/update', async (req, res, next) => {
 //   try {
 //     const update_id = req.body.update_id;
@@ -245,5 +233,3 @@ router.post('/insertU', upload.single('image'), async (req, res, next) => { // i
 //     res.status(500).send('Internal Server Error');
 //   }
 // });
-
-module.exports = router;

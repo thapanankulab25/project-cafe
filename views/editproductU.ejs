@@ -45,7 +45,7 @@
                     <h1 style="font-family: 'Prompt', sans-serif; font-size: 18px;">แก้ไขข้อมูลสินค้า</h1>
                   </div>
                 </div>
-                <form action="/updateProduct" method="POST" class="pt-3">
+                <form action="products/updateU" method="POST" class="pt-3">
                   <div class="form-group">
                     <div class="image-container">
                       <img src="/images/products/<%= product.image %>" class="img-fluid circular-image">
@@ -69,17 +69,17 @@
                   </div>
                   <div class="form-group">
                     <label for="productId">Product ID</label>
-                    <input type="text" class="form-control form-control-lg" id="productId" name="productId" value="<%= product._id %>" 
+                    <input type="text" class="form-control form-control-lg" id="update_id" name="update_id" value="<%= product._id %>" 
                     style="font-family: 'Prompt', sans-serif; font-size: 14px;" readonly>
                   </div>
                   <div class="form-group">
                     <label for="productName">ชื่อสินค้า</label>
-                    <input type="text" class="form-control form-control-lg" id="productName" name="productName" value="<%= product.productname %>"
+                    <input type="text" class="form-control form-control-lg" id="productname" name="productname" value="<%= product.productname %>"
                     style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                   </div>
                   <div class="form-group">
                     <label for="productType">ประเภทสินค้า</label>
-                    <select class="form-control form-control-lg" id="productType" name="productType"
+                    <select class="form-control form-control-lg" id="type" name="type"
                     style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                       <% productTypes.forEach(type => { %>
                         <option value="<%= type %>"><%= type %></option>
@@ -88,7 +88,7 @@
                   </div>
                   <div class="form-group">
                     <label for="productPrice">ราคา</label>
-                    <input type="text" class="form-control form-control-lg" id="productPrice" name="productPrice" value="<%= product.price %>"
+                    <input type="text" class="form-control form-control-lg" id="price" name="price" value="<%= product.price %>"
                     style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                   </div>
                   <div class="mt-3">
