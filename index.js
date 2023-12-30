@@ -70,7 +70,7 @@ app.use("*",(req,res,next)=>{
 const redirectAuth = require('./middleware/redirectAuth')
 const authMiddleware = require('./middleware/authMiddleware')
 
-//get
+//get directory
 // app.get('/', indexController)
 app.get('/index',indexController)
 app.get('/', loginController)
@@ -85,7 +85,6 @@ app.get('/product',authMiddleware,productController)
 app.get('/order',authMiddleware,orderController)
 app.get('/raw',authMiddleware,rawController)
 app.get('/orderU',authMiddleware,orderUController)
-
 app.post('products/editU',authMiddleware,editproductUController)
 
 app.get('/editproductU',authMiddleware,editproductUController)
@@ -96,8 +95,6 @@ app.get('/rawU',authMiddleware,rawUController)
 app.get('/homeU',authMiddleware,homeUController)
 app.get('/productU',authMiddleware,productUController)
 // app.get('/editproductU',authMiddleware,productUController)
-
-
 
 //Api add Products
 const products = require('./routes/products')

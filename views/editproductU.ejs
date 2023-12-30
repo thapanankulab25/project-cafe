@@ -32,7 +32,7 @@
               <br>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="/productU">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/productU">สินค้า</a></li>
                   <li class="breadcrumb-item active" aria-current="page">แก้ไขข้อมูลสินค้า</li>
                 </ol>
               </nav>
@@ -69,9 +69,6 @@
                         });
                       });
                     </script>
-                    
-                    
-                    
 
                     <style>
                      .image-container {
@@ -100,6 +97,7 @@
                     <input type="text" class="form-control form-control-lg" id="productname" name="productname" value="<%= product.productname %>"
                     style="font-family: 'Prompt', sans-serif; font-size: 14px;">
                   </div>
+                  
                   <div class="form-group">
                     <label for="productType">ประเภทสินค้า</label>
                     <select class="form-control form-control-lg" id="type" name="type"
@@ -109,6 +107,7 @@
                       <% }); %>
                     </select>
                   </div>
+
                   <div class="form-group">
                     <label for="productPrice">ราคา ฿</label>
                     <input type="text" class="form-control form-control-lg" id="price" name="price" value="<%= product.price %>"

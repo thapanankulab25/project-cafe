@@ -7,7 +7,6 @@ module.exports = async (req, res) => {
         const productId = req.query.id;
         let product = await Product.findById(productId);
         let productTypes = await Product.distinct('type');
-        
         res.render('editproductU', {
             UserData,
             product,

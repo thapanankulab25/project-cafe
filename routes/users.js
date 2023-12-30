@@ -48,7 +48,6 @@ router.post('/updateU/:id', async (req, res, next) => {
   const userId = req.params.userId;
 
   try {
-    // Assuming you have a User model with appropriate schema
     const updatedUser = await User.findByIdAndUpdate(userId, {
       username: req.body.username,
       password: req.body.password,
@@ -58,7 +57,6 @@ router.post('/updateU/:id', async (req, res, next) => {
       phone: req.body.phone,
       address: req.body.address,
       role: req.body.role,
-      image: req.file.filename, // Assuming you are using multer for file uploads
     }, { new: true });
 
     // Check if the user was found and updated successfully
@@ -67,6 +65,7 @@ router.post('/updateU/:id', async (req, res, next) => {
     }
 
     res.status(200).json({ message: 'User updated successfully', user: updatedUser });
+    res.redirect('/editprofileU')
   } catch (error) {
     console.error('Error updating user:', error);
     res.status(500).send('Internal Server Error');
@@ -118,6 +117,32 @@ router.post('/insert', upload.single('image'), async (req, res, next) => {
     next(err);
   }
 });
+
+router.post('/updateU', upload.single('image'), async (req, res, next) => {
+  try {
+    const updateP_id = req.body.updateP_id;
+    const data = {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address,
+    };
+
+    if (req.file) {
+      data.image = req.file.filename;
+    }
+    console.log(updateP_id);
+    console.log(data);
+
+    await User.findByIdAndUpdate(updateP_id, data, { useFindAndModify: false });
+    res.redirect('/editprofileU');
+  } catch (err) {
+    console.error('Error updating product:', err);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 
 
 
